@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "821820754484",
+    "project_id": "foodsathy",
+    "storage_bucket": "foodsathy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821820754484:android:0525a3b89b05db3580d861",
+        "android_client_info": {
+          "package_name": "com.prinjal22.FoodSathy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821820754484-6bfeo0tbt7qqko9jpo93smdojicju3uj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prinjal22.FoodSathy",
+            "certificate_hash": "d5618ffcac91475546d507868577f94afe72e5f7"
+          }
+        },
+        {
+          "client_id": "821820754484-fst1kd2b0fo8mjh0bari2tifs7f7upb2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prinjal22.FoodSathy",
+            "certificate_hash": "67dcb9130f8024c6d12cfb97e51c606a9b7be3bf"
+          }
+        },
+        {
+          "client_id": "821820754484-ao66snlft9jmj2o9u4hdeem8a2pkpgul.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClZ-uyHkD3CHMXMHHQa4hKgqrQ238I4_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821820754484-ao66snlft9jmj2o9u4hdeem8a2pkpgul.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

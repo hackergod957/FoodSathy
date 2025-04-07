@@ -20,7 +20,7 @@ import {
   GoogleSignin,
   GoogleSigninButton,
 } from "@react-native-google-signin/google-signin";
-
+import auth from '@react-native-firebase/auth'
 
 const Login = () => {
   const [initializing, setInitializing] = useState(true);
@@ -30,6 +30,44 @@ const Login = () => {
   const [enabledOtp, setEnabledOtp] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  GoogleSignin.configure({
+    webClientId:
+      "821820754484-fst1kd2b0fo8mjh0bari2tifs7f7upb2.apps.googleusercontent.com",
+  });
+
+  function onAuthStateChanged(user){
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged)
+
+  },[]);
+  const onGoogleButtonPress = async () => {
+    const {idToken} = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    const user_sign_in =auth().signInWithCredential(googleCredential);
+
+    user_sign_in.then((user) => {
+      console.log(user)
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
+  const signOut = async () => {
+    try{
+      await GoogleSignin.revokeAccess();
+      await auth().signOut();
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+  if (initializing) return null;
 
   const [fontsLoaded] = useFonts({
     "Poppins-Regular": require("@/assets/fonts/Poppins-Regular.ttf"),
@@ -57,8 +95,6 @@ const Login = () => {
       </View>
     );
   }
-
-
 
   if (!user) {
     return (
@@ -114,7 +150,7 @@ const Login = () => {
               <OrSeparator text="or" />
               <GoogleSigninButton
                 className="h-16 w-96 bg-black gap-5"
-                onPress={() => {}}
+                onPress={onGoogleButtonPress}
               />
             </View>
           </Animated.View>
@@ -176,11 +212,11 @@ const Login = () => {
   } else {
     return (
       <SafeAreaView>
-        {/* <Navbar title="Dashboard" icon={true} uri={user.photoURL} /> */}
-        {/* <View> */}
-          {/* <Text>Hello welcome {user.displayName}</Text>
+        <Navbar title="Dashboard" icon={true} uri={user.photoURL} />
+        <View>
+        <Text>Hello welcome {user.displayName}</Text>
           <Button title="Sign Out" onPress={signOut} />
-        </View> */}
+        </View>
       </SafeAreaView>
     );
   }

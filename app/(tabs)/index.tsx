@@ -2,8 +2,7 @@ import SplashScreen from "@/components/SplashScreen";// this is the splash compo
 import { router, useNavigation, useRouter } from "expo-router";//this is the navigation component
 import { useEffect, useRef, useState } from "react";//use components
 import { Animated, Easing, Text, View } from "react-native";// native components
-import "expo-dev-client
-"
+import "expo-dev-client"
 // Here i have imported all the complements and items
 
 export default function Index() {
